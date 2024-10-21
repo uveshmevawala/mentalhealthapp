@@ -10,6 +10,9 @@ from imblearn.over_sampling import SMOTE
 from dataclasses import dataclass
 from src.components.data_processor import DataPreprocessor
 
+from src.components.model_trainer import ModelTrainerConfig
+from src.components.model_trainer import ModelTrainer
+
 
 @dataclass
 class DataIngestionConfig:
@@ -52,9 +55,13 @@ if __name__=="__main__":
     # Preprocess the data and split
     X_train, X_test, y_train, y_test = preprocessor.preprocess('History of Mental Illness')
 
-    print("X_train:\n", X_train)
-    print("X_test:\n", X_test)
-    print("y_train:\n", y_train)
-    print("y_test:\n", y_test)
+
+    modeltrainer=ModelTrainer()
+    print(modeltrainer.initiate_model_trainer(X_train,y_train,X_test,y_test))
+
+    # print("X_train:\n", X_train)
+    # print("X_test:\n", X_test)
+    # print("y_train:\n", y_train)
+    # print("y_test:\n", y_test)
 
 
