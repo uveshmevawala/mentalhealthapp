@@ -8,7 +8,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from imblearn.over_sampling import SMOTE
 from dataclasses import dataclass
-from src.components.data_processor import DataPreprocessor
+from src.components.data_transformation import DataTransformation
 
 from src.components.model_trainer import ModelTrainerConfig
 from src.components.model_trainer import ModelTrainer
@@ -16,7 +16,7 @@ from src.components.model_trainer import ModelTrainer
 
 @dataclass
 class DataIngestionConfig:
-    raw_data_path: str=os.path.join('artifacts',"data.csv")
+    raw_data_path: str=os.path.join('artifacts','data.csv')
 
 class DataIngestion:
     def __init__(self):
@@ -46,15 +46,20 @@ if __name__=="__main__":
     obj=DataIngestion()
     raw_data=obj.initiate_data_ingestion()
 
-    df = pd.read_csv(raw_data)
-    df.drop('Name',axis=1,inplace=True)
+    #  # Initialize the preprocessor
+    preprocessor = DataTransformation()  
+    X_train, X_test, y_train, y_test,_=preprocessor.initiate_data_transformation(raw_data) 
+    print("Data transformation done....")
 
-     # Initialize the preprocessor
-    preprocessor = DataPreprocessor(df)
+    # df = pd.read_csv(raw_data)
+    # df.drop('Name',axis=1,inplace=True)
 
-    # Preprocess the data and split
-    X_train, X_test, y_train, y_test = preprocessor.preprocess('History of Mental Illness')
+    #  # Initialize the preprocessor
+    # preprocessor = DataPreprocessor(df)
 
+    # # Preprocess the data and split
+    # X_train, X_test, y_train, y_test = preprocessor.preprocess('History of Mental Illness')
+ 
 
     modeltrainer=ModelTrainer()
     print(modeltrainer.initiate_model_trainer(X_train,y_train,X_test,y_test))
