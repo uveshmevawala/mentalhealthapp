@@ -19,10 +19,28 @@ class DataIngestionConfig:
     raw_data_path: str=os.path.join('artifacts','data.csv')
 
 class DataIngestion:
+    """
+    A class used to Ingest the data.
+    
+    Methods
+    -------
+    initiate_data_ingestion():
+        reads the ingested file.
+    """
+        
     def __init__(self):
         self.ingestion_config=DataIngestionConfig()
 
     def initiate_data_ingestion(self):
+        """
+        Ingests the data from the source & stores in local directory .
+        
+        Parameters:
+        
+        
+        Returns:
+        Local directory location where file is saved.
+        """
         logging.info("Entered the data ingestion method or component")
         try:
             df=pd.read_csv('notebook\data\depression_data.csv')
@@ -43,30 +61,19 @@ class DataIngestion:
             raise CustomException(e,sys)
         
 if __name__=="__main__":
+    #  Initialize the data ingestion
     obj=DataIngestion()
     raw_data=obj.initiate_data_ingestion()
 
-    #  # Initialize the preprocessor
+    #  Initialize the preprocessor
     preprocessor = DataTransformation()  
     X_train, X_test, y_train, y_test,_=preprocessor.initiate_data_transformation(raw_data) 
     print("Data transformation done....")
 
-    # df = pd.read_csv(raw_data)
-    # df.drop('Name',axis=1,inplace=True)
-
-    #  # Initialize the preprocessor
-    # preprocessor = DataPreprocessor(df)
-
-    # # Preprocess the data and split
-    # X_train, X_test, y_train, y_test = preprocessor.preprocess('History of Mental Illness')
- 
-
+    #  Initialize & run the model trainer          
     modeltrainer=ModelTrainer()
     print(modeltrainer.initiate_model_trainer(X_train,y_train,X_test,y_test))
 
-    # print("X_train:\n", X_train)
-    # print("X_test:\n", X_test)
-    # print("y_train:\n", y_train)
-    # print("y_test:\n", y_test)
+
 
 

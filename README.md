@@ -46,6 +46,8 @@ pip install -r requirements.txt
 |   |   ├── predict_pipeline.py     # Script containg all the steps to handle the prediction.
 │   ├── exception.py                # Script to handle exceptions & errors.
 │   ├── logger.py                   # Script for logging.
+├── test/                           # Directory containing the unit test cases .
+|   ├── test_mental_health_model.py # .py containing the unit test cases .
 ├── templates/                      # Directory containing html files for app UI .
 |   ├── index.html                  # html file of the index file.
 |   ├── home.html                   # html file of the app homepage.
