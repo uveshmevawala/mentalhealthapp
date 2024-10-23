@@ -5,15 +5,15 @@
 This project is a Machine Learning application designed to predict mental illness based on lifestyle factors. The goal is to develop an accurate and efficient model for prediction.
 
 ## Features
-## Data Preprocessing: 
+# Data Preprocessing: 
 Categorical and numerical feature transformations, one-hot encoding, label encoding, and handling missing values.
-## Modeling: 
+# Modeling: 
 Uses multiple classification algorithms (Random Forest, XGBoost, Decision Trees) with hyperparameter tuning via GridSearch/RandomizedSearch.
-## Evaluation: 
+# Evaluation: 
 Evaluates model performance using accuracy, F1-score, precision, recall, and confusion matrix.
-## SMOTE: 
+# SMOTE: 
 Implements SMOTE for handling class imbalance.
-## Model Deployment:
+# Model Deployment:
  Best performing model saved as a .pkl file.
 
 ## Prerequisites
