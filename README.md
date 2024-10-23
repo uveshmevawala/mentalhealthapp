@@ -77,6 +77,12 @@ pip install -r requirements.txt
 python app.py
 ```
 
+### 4. Running the code in VSCode
+
+```bash
+python src/components/data_ingestion.py
+```
+
 
 
 
