@@ -33,3 +33,45 @@ etc. The full list of libraries are present in requirements.txt file.
 
 pip install -r requirements.txt
 
+## Project Structure
+
+├── artifacts/                      # Directory containing ingested data files, trained ML Model , transformer pkl files .
+├── notebooks/                      # Jupyter notebooks for source data, EDA and model experimentation in .ipynb file.
+├── src/                            # Python source files (preprocessing, modeling, training, etc.).
+|   ├── components                  # Directory containing ML components.
+|   |   ├── data_ingestion.py       # Script for ingesting data from source system to local directory.
+|   |   ├── data_transformation.py  # Script to transform the source data to make it ready for ML model.
+|   |   ├── model_trainer.py        # Script to train the ML models, hyperparameter tuning, evaluate them .
+|   ├── pipeline                    # Directory containing scripts to handle prediction.
+|   |   ├── predict_pipeline.py     # Script containg all the steps to handle the prediction.
+│   ├── exception.py                # Script to handle exceptions & errors.
+│   ├── logger.py                   # Script for logging.
+├── templates/                      # Directory containing html files for app UI .
+|   ├── index.html                  # html file of the index file.
+|   ├── home.html                   # html file of the app homepage.
+├── README.md                       # Project overview and instructions.
+├── requirements.txt                # Dependencies and libraries needed.
+├── app.py                          # Flask app file - Main script to run the application.
+└── setup.py                        # file to make the app as library/package to be deployed in PyPI.
+
+## Project Structure
+
+### 1. Clone the repository:
+
+git clone https://github.com/uveshmevawala/mentalhealthapp.git
+
+### 2. Install the required dependencies:
+
+pip install -r requirements.txt
+
+### 3. Running the Application
+
+python app.py
+
+
+
+
+
+
+
+
