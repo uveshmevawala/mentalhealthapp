@@ -34,7 +34,7 @@ etc. The full list of libraries are present in requirements.txt file.
 pip install -r requirements.txt
 
 ## Project Structure
-
+```bash
 ├── artifacts/                      # Directory containing ingested data files, trained ML Model , transformer pkl files .
 ├── notebooks/                      # Jupyter notebooks for source data, EDA and model experimentation in .ipynb file.
 ├── src/                            # Python source files (preprocessing, modeling, training, etc.).
@@ -53,6 +53,7 @@ pip install -r requirements.txt
 ├── requirements.txt                # Dependencies and libraries needed.
 ├── app.py                          # Flask app file - Main script to run the application.
 └── setup.py                        # file to make the app as library/package to be deployed in PyPI.
+```
 
 ## Project Structure
 
