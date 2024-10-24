@@ -57,28 +57,40 @@ pip install -r requirements.txt
 └── setup.py                        # file to make the app as library/package to be deployed in PyPI.
 ```
 
-## Project Structure
+## Instruction to access the code
 
-### 1. Clone the repository:
+### 1. Create a new environment:
+Create & activate a new environment with below command
+
+```bash
+conda create -p axavenv python==3.8 -y
+conda activate axavenv/
+```
+
+### 2. Clone the repository:
 
 ```bash
 git clone https://github.com/uveshmevawala/mentalhealthapp.git
 ```
 
-### 2. Install the required dependencies:
+### 3. Install the required dependencies:
+Navigate to the mentalhealthapp directory & run following command 
 
 ```bash
-cd metalhealthapp
 pip install -r requirements.txt
 ```
 
-### 3. Running the Application
+### 4. Running the Application
 
 ```bash
 python app.py
+
+Go to http://127.0.0.1:5000/predictdata to access the webapp
 ```
 
 ### 4. Running the code in VSCode
+
+Navigate to the mentalhealthapp directory & run following command 
 
 ```bash
 python src/components/data_ingestion.py
