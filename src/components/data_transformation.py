@@ -38,14 +38,14 @@ class NumericalToCategoricalTransformer(BaseEstimator, TransformerMixin):
         self.age_labels = ['Child', 'Teen', 'Young Adult', 'Adult', 'Senior']
         self.income_bins = income_bins or [0, 30000, 60000, 100000, np.inf]  # Default income bins
         self.income_labels = ['Low', 'Middle', 'Upper Middle', 'Wealthy']
-        print("In NumericalToCategoricalTransformer func")
+        
 
     def fit(self, X, y=None):
         return self  # No fitting necessary
 
     def transform(self, X, y=None):
         X = X.copy()
-        print("In transform func")
+        
         # Convert age and income columns to categorical
         X['age_group'] = pd.cut(X['Age'], bins=self.age_bins, labels=self.age_labels)
         X['income_group'] = pd.cut(X['Income'], bins=self.income_bins, labels=self.income_labels)
@@ -63,7 +63,7 @@ class DataTransformation:
         and performs one-hot encoding on categorical features.
         """
         # Define which columns are categorical and numerical
-        print("In create_transformation func")
+        
         categorical_features = [
                     "Marital Status",
                     "Education Level",
@@ -81,14 +81,14 @@ class DataTransformation:
         
         ##### add transformed age and income groups to the categorical features
         numerical_to_categorical_transformer = NumericalToCategoricalTransformer()
-        print("Num to cat transformation done")
+        
         
         ### pipeline to handle transformation
         self.pipeline = Pipeline(steps=[
             ('numerical_to_categorical', numerical_to_categorical_transformer),  # Step 1: Convert numerical to categorical
             ('one_hot_encoding', OneHotEncoder())  # Step 2: Apply One-Hot Encoding
         ])
-        print("setting pipeline fitting")
+        
 
         self.pipeline.fit(df)
 
@@ -107,7 +107,7 @@ class DataTransformation:
         print(f"Transformation pipeline saved as {filename}")
         return filename
 
-    def load_transformation_pipeline(self, filename='transformation_pipeline.pkl'):
+    def load_transformation_pipeline(self, filename='artifacts/transformation_pipeline.pkl'):
         """
         Load the saved pipeline object for transforming test data.
         """
