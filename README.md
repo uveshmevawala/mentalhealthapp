@@ -68,6 +68,7 @@ git clone https://github.com/uveshmevawala/mentalhealthapp.git
 ### 2. Install the required dependencies:
 
 ```bash
+cd metalhealthapp
 pip install -r requirements.txt
 ```
 
